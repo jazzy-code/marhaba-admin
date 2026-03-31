@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+@theme {
+  /* Configuración de Colores de AI Studio */
+  --color-page: #f9f8f6;
+  --color-primary-gold: #b08d57;
+  --color-primary-gold-dark: #8c6d3f;
+  --color-deep-brown: #2f2003;
+  --color-background-light: #f9f8f6;
+  --color-surface: #ffffff;
+  --color-surface-dark: #2a2721;
+  --color-text-main: #1b140d;
+  --color-text-muted: #9a734c;
+  --color-luxury-brown: #2f2003;
+  --color-luxury-gold: #b08d57;
+  --color-luxury-gray: #6b625c;
+  --color-luxury-input: #f9f9f6;
+  --color-luxury-border: #efe7e2;
+  --color-brown-dark: #5c554b;
+  --color-brown-text: #2f2003;
+
+  /* Colores de Marca Anidados */
+  --color-brand-primary: #2f2003;
+  --color-brand-secondary: #5c554b;
+  --color-brand-accent: #c5a572;
+  --color-brand-border: #e5e0d8;
+  --color-brand-surface: #ffffff;
+  --color-brand-muted: #9ca3af;
+
+  /* --- ESCALA DE GRISES (Stone) --- */
+  --color-stone-50: #fafaf9;
+  --color-stone-100: #f5f5f4;
+  --color-stone-200: #e7e5e4;
+  --color-stone-300: #d6d3d1;
+  --color-stone-400: #a8a29e;
+  --color-stone-500: #78716c;
+  --color-stone-600: #57534e;
+  --color-stone-700: #44403c;
+  --color-stone-800: #292524;
+  --color-stone-900: #1c1917;
+
+  /* Tipografías (Asegúrate de cargarlas en layout.tsx) */
+  /* --font-sans: "Inter", ui-sans-serif, system-ui; */
+  --font-sans: "Manrope", sans-serif;
+  --font-serif: "Playfair Display", ui-serif, Georgia;
+  --font-display: "Manrope", sans-serif;
+  --font-plus: "Plus Jakarta Sans", sans-serif;
+
+  /* Sombras y Bordes */
+  --shadow-2xl: 0 25px 50px -12px rgba(47, 32, 3, 0.25);
+
+  --radius-sm: 0.125rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+
+  --dark-mode: selector
+}
+
+/** This is to force "light" mode */
+@custom-variant dark (&:where(.disabled-dark-mode));
+
+:root {
+  color-scheme: light !important;
+}
+
+/* Estilos Base para igualar a AI Studio */
+@layer base {
+  :root {
+    color-scheme: light !important;
+  }
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-page);
+    color: var(--color-deep-brown);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    color-scheme: light !important;
+  }
+
+  ::selection {
+    background-color: #b08d57;
+    color: #ffffff;
+  }
+}
+/* Utilidades personalizadas de AI Studio */
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+  .animate-fade-in {
+    animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Soporte para Material Symbols */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+  display: inline-block;
+  line-height: 1;
+}
+
+button {
+  cursor: pointer;
+}
