@@ -135,7 +135,7 @@ const ServicesPage: FC<ServicesPageProps> = ({ initialData, statusId }) => {
         return (
           <div className="flex items-center gap-2">
             <div>
-              <Avatar sx={{ width: "3rem", height: "3rem" }} alt={service.title || ""} src={service.heroImage} />
+              <Avatar sx={{ width: "3rem", height: "3rem" }} alt={service.title || ""} src={service.heroImageUrl} />
             </div>
             <div>
               <p>{service.title}</p>
