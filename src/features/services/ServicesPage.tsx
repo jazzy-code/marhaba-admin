@@ -104,6 +104,7 @@ const ServicesPage: FC<ServicesPageProps> = ({ initialData, statusId }) => {
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["services"] })
+      queryClient.invalidateQueries({ queryKey: ["services-stats"] })
       setModalRejectOpen(false)
       setSelectedService(null)
     },
@@ -248,7 +249,7 @@ const ServicesPage: FC<ServicesPageProps> = ({ initialData, statusId }) => {
                 <Avatar
                   sx={{ width: "3rem", height: "3rem" }}
                   alt={selectedService.title || ""}
-                  src={selectedService.heroImage}
+                  src={selectedService.heroImageUrl}
                 />
               </div>
               <div>
@@ -259,7 +260,7 @@ const ServicesPage: FC<ServicesPageProps> = ({ initialData, statusId }) => {
           )
         }
         onCancel={() => setModalRejectOpen(false)}
-        onConfirm={() => reject(selectedService.id)}
+        onConfirm={(reason) => reject({ id: selectedService.id, reason: reason || "" })}
       />
       <ModalApprove
         open={modalApproveOpen}
@@ -271,7 +272,7 @@ const ServicesPage: FC<ServicesPageProps> = ({ initialData, statusId }) => {
                 <Avatar
                   sx={{ width: "3rem", height: "3rem" }}
                   alt={selectedService.title || ""}
-                  src={selectedService.heroImage}
+                  src={selectedService.heroImageUrl}
                 />
               </div>
               <div>

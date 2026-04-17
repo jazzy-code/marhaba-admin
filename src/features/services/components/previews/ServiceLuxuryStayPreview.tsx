@@ -7,8 +7,8 @@ import ServiceBasePreviewWrapper from "../previewsHelpers/ServiceBasePreviewWrap
 const ServiceLuxuryStayPreview = ({ service }: { service: any }) => {
   const characteristics = [
     { label: "Max. Guests", value: service.totalGuests, icon: <Users size={20} /> },
-    { label: service.luxuryStayCategory.name, icon: <House size={20} /> },
-    { label: service.luxuryStayRoom.name, icon: <BedDouble size={20} /> }
+    { label: service.luxuryStayCategory?.name, icon: <House size={20} /> },
+    { label: service.luxuryStayRoom?.name, icon: <BedDouble size={20} /> }
   ]
 
   return (

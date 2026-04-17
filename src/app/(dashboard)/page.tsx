@@ -4,7 +4,7 @@ export default async function Page() {
   const stats = await getServicesStats()
   return (
     <div className="flex-1 overflow-y-auto p-6 lg:p-10">
-      <div className="max-w-7xl mx-auto flex flex-col gap-8 h-full">
+      <div className="max-w-7xl mx-auto flex flex-col gap-8 min-h-full">
         <div className="flex flex-col gap-2">
           <div className="flex justify-between items-end">
             <div>
@@ -61,7 +61,7 @@ export default async function Page() {
             </span>
           </div>
         </div>
-        <div className="bg-white rounded-sm border border-subtle-border dark:border-stone-800 shadow-sm flex flex-col">
+        <div className="bg-white rounded-sm border mb-3 border-subtle-border dark:border-stone-800 shadow-sm flex flex-col">
           <div className="p-6 border-b border-subtle-border dark:border-stone-800 flex justify-between items-center">
             <h2 className="font-serif text-xl text-brown-dark font-medium">Recent Activity</h2>
           </div>
@@ -100,7 +100,7 @@ export default async function Page() {
                 <p className="text-xs text-warm-grey mt-1">Yesterday, 3:30 PM</p>
               </div>
             </div>
-            <div className="flex items-start gap-4 p-6 hover:bg-stone-50 dark:hover:bg-stone-800/30 transition-colors">
+            {/* <div className="flex items-start gap-4 p-6 hover:bg-stone-50 dark:hover:bg-stone-800/30 transition-colors">
               <div className="mt-1 p-2 rounded-full bg-primary-gold/10 text-primary-gold shrink-0">
                 <i className="w-4 h-4" data-lucide="mail"></i>
               </div>
@@ -111,7 +111,7 @@ export default async function Page() {
                 </p>
                 <p className="text-xs text-warm-grey mt-1">Oct 24, 2023</p>
               </div>
-            </div>
+            </div> */}
           </div>
           <div className="border-t border-subtle-border dark:border-stone-800 bg-stone-50 dark:bg-stone-900 p-4 flex items-center justify-between rounded-b-sm">
             <span className="text-xs text-stone-500">Showing recent 4 of 24 Activities</span>

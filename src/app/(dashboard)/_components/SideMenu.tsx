@@ -1,14 +1,17 @@
 "use client"
 
-import { Archive, BadgeAlert, BadgeCheck, BadgeX, LayoutDashboard } from "lucide-react"
+import { useUser } from "@clerk/nextjs"
+import { BadgeAlert, BadgeCheck, BadgeX, LayoutDashboard } from "lucide-react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 
+import MarhabaIcon from "@/assets/icons/MarhabaIcon"
 import { useServicesStats } from "@/hooks/useServicesStats"
 
 const SideMenu = () => {
   const pathname = usePathname()
   const { data } = useServicesStats()
+  const { user } = useUser()
 
   const menuSelectedClasses =
     "flex items-center gap-3 px-4 py-3 bg-primary-gold/10 text-primary-gold dark:text-primary-gold rounded-sm transition-colors group"
@@ -20,7 +23,7 @@ const SideMenu = () => {
       <div className="p-8 pb-4">
         <div className="flex items-center gap-3">
           <div className="h-10 w-10 bg-primary-gold/20 rounded-full flex items-center justify-center text-primary-gold font-serif font-bold text-xl">
-            M
+            <MarhabaIcon size={30} />
           </div>
           <div>
             <h1 className="font-serif text-lg font-bold text-stone-900 leading-tight">Marbella</h1>
@@ -29,21 +32,12 @@ const SideMenu = () => {
         </div>
       </div>
       <nav className="flex-1 px-4 py-6 space-y-1 overflow-y-auto">
-        <p className="px-4 text-xs font-semibold text-stone-400 uppercase tracking-wider mb-2">Portfolio</p>
+        <p className="px-4 text-xs font-semibold text-stone-400 uppercase tracking-wider mb-2">Services</p>
         {/* Menu items */}
         <Link className={pathname === "/" ? menuSelectedClasses : menuClasses} href="/">
           <LayoutDashboard className="group-hover:text-primary-gold transition-colors" />
           <span className="font-medium text-sm">Dashboard</span>
         </Link>
-        <Link className={pathname === "/services" ? menuSelectedClasses : menuClasses} href="/services">
-          <Archive className="group-hover:text-primary-gold transition-colors" />
-          <span className="font-medium text-sm">All Services</span>
-          <span className="ml-auto bg-stone-200 text-stone-600 text-[10px] font-bold px-2 py-0.5 rounded-full">
-            {data?.total || 0}
-          </span>
-        </Link>
-
-        <p className="px-4 text-xs font-semibold text-stone-400 uppercase tracking-wider mb-2 mt-8">SERVICES</p>
         <Link
           className={pathname.includes("/services/pending") ? menuSelectedClasses : menuClasses}
           href="/services/pending">
@@ -81,8 +75,10 @@ const SideMenu = () => {
                 'url("https://lh3.googleusercontent.com/aida-public/AB6AXuDt41JMuspw7_6XCRRRWo7P_24M3FDxXcbkBzhBquXgkuMcH_eennK9FLp-wBL9tdzuWQyodg9pZrwZUxDefhWh3OIS6ErRKpT6yWny8qs8efjMhouGrXR18A5GppOXnMGxTqSur_sJG1VckC3p-c8e9SEbAYC63C-TjMLKDsvsxc47up0oi2wyv0jyaiaQ33JOso8ZVwpUoOv2njPcegi8RkO7d03Sq2EoyFU5U-1zI-QrRGsgAvJiygSe2InqZozrKXk3F6Btmko")'
             }}></div>
           <div className="flex flex-col">
-            <span className="text-sm font-bold text-stone-900">Elena R.</span>
-            <span className="text-xs text-stone-500">Provider</span>
+            <span className="text-sm font-bold text-stone-900">
+              {user?.firstName} {user?.lastName}
+            </span>
+            <span className="text-xs text-stone-500">Administrator</span>
           </div>
         </div>
       </div>

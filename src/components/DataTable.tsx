@@ -35,12 +35,10 @@ interface DataTableProps {
 const DataTable = ({
   columns = [],
   data = [],
-  idsSelected = [],
   isPaginated,
   loading,
   loadingRows = 10,
   maxHeight = "calc(100vh - 17rem)",
-  disableEditAction,
   rowsPerPage,
   page,
   total,

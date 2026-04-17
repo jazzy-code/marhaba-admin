@@ -1,4 +1,6 @@
-import { Button, Dialog, DialogActions, DialogContent, IconButton } from "@mui/material"
+import { useState } from "react"
+
+import { Button, Dialog, DialogActions, DialogContent, IconButton, TextField } from "@mui/material"
 import { X } from "lucide-react"
 
 interface ModalRejectProps {
@@ -6,10 +8,11 @@ interface ModalRejectProps {
   loading: boolean
   element: React.ReactNode
   onCancel: () => void
-  onConfirm: () => void
+  onConfirm: (reason?: string) => void
 }
 
 const ModalReject = ({ open, loading, element, onCancel, onConfirm }: ModalRejectProps) => {
+  const [reason, setReason] = useState("")
   return (
     <Dialog
       open={open}
@@ -24,7 +27,18 @@ const ModalReject = ({ open, loading, element, onCancel, onConfirm }: ModalRejec
         <div className="mt-8 text-center">
           <h2 className="text-xl font-bold">Reject this Sevice?</h2>
           {element}
+          <br />
           <p>Are you sure you want to REJECT this service? </p>
+          <br />
+          <TextField
+            multiline
+            rows={4}
+            variant="outlined"
+            sx={{ width: "100%" }}
+            placeholder="Describe the reason for rejection"
+            value={reason}
+            onChange={(e: any) => setReason(e.target.value)}
+          />
         </div>
       </DialogContent>
       <DialogActions>
@@ -40,8 +54,9 @@ const ModalReject = ({ open, loading, element, onCancel, onConfirm }: ModalRejec
           variant="contained"
           color="error"
           sx={{ width: "12rem !important" }}
+          disabled={!reason}
           loading={loading}
-          onClick={onConfirm}>
+          onClick={() => onConfirm(reason)}>
           Reject
         </Button>
       </DialogActions>

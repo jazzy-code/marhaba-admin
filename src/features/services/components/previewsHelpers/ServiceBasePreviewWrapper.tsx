@@ -2,7 +2,7 @@
 
 import { ReactNode } from "react"
 
-import { MapPin, Share2 } from "lucide-react"
+import { BadgeCheck, Gem, MapPin, Share2 } from "lucide-react"
 import Link from "next/link"
 
 import { CUR_SYM } from "@/constants"
@@ -20,13 +20,11 @@ type CharacteristicType = {
 interface ServiceBasePreviewWrapperProps {
   service: any
   characteristics: CharacteristicType[]
-  children: ReactNode
+  children?: ReactNode
 }
 
 const ServiceBasePreviewWrapper = ({ service, characteristics, children }: ServiceBasePreviewWrapperProps) => {
   const { formatStringCurrency } = useCurrency(service.currency)
-
-  console.log(service)
 
   return (
     <main className="max-w-[1400px] mx-auto px-2 lg:px-4 pb-8 lg:pb-15">
@@ -118,7 +116,7 @@ const ServiceBasePreviewWrapper = ({ service, characteristics, children }: Servi
             </div>
             {service.exclusiveListing && (
               <div className="flex mt-8 sm:mt-0 items-center gap-2 px-5 py-2 border border-brand-border rounded-sm">
-                <span className="material-symbols-outlined icon-filled text-brand-accent text-[16px]">verified</span>
+                <BadgeCheck size={26} className="text-brand-accent" />
                 <span className="text-[10px] uppercase tracking-widest font-semibold text-brand-primary">
                   Exclusive Listing
                 </span>
@@ -191,7 +189,7 @@ const ServiceBasePreviewWrapper = ({ service, characteristics, children }: Servi
             </div>
             <div className="bg-white border border-brand-border/60 p-6 rounded-sm flex items-start gap-5">
               <div className="bg-page p-2.5 rounded-full text-brand-accent shrink-0 border border-brand-border/50">
-                <span className="material-symbols-outlined text-[20px]">diamond</span>
+                <Gem size={26} className="text-brand-accent" />
               </div>
               <div>
                 <h4 className="text-xs font-bold uppercase tracking-widest text-brand-primary mb-2">

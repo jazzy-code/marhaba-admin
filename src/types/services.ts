@@ -150,6 +150,5 @@ export type View =
 export interface ChatMessage {
   role: "user" | "model"
   text: string
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   grounding?: any[] // Holds grounding chunks from Gemini Search/Maps
 }

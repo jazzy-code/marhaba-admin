@@ -6,8 +6,18 @@ import { useRouter } from "next/navigation"
 
 import StatusBadge from "@/components/StatusBadge"
 
+import ServiceBeautySpaPreview from "./components/previews/ServiceBeautySpaPreview"
+import ServiceGolfPreview from "./components/previews/ServiceGolfPreview"
+import ServiceJetPreview from "./components/previews/ServiceJetPreview"
+import ServiceLuxuryCarPreview from "./components/previews/ServiceLuxuryCarPreview"
 import ServiceLuxuryStayPreview from "./components/previews/ServiceLuxuryStayPreview"
+import ServiceMedicalCarePreview from "./components/previews/ServiceMedicalCarePreview"
+import ServicePrivateEventPreview from "./components/previews/ServicePrivateEventPreview"
+import ServicePrivateStaffPreview from "./components/previews/ServicePrivateStaffPreview"
 import ServiceRealEstatePreview from "./components/previews/ServiceRealEstatePreview"
+import ServiceSecurityGuardPreview from "./components/previews/ServiceSecurityGuardPreview"
+import ServiceTrainingCoachPreview from "./components/previews/ServiceTrainingCoachPreview"
+import ServiceYachtPreview from "./components/previews/ServiceYachtPreview"
 
 const ServicePreviewPage = ({ service }: any) => {
   const router = useRouter()
@@ -24,17 +34,17 @@ const ServicePreviewPage = ({ service }: any) => {
 
   const servicesPreviews: any = {
     RealEstate: <ServiceRealEstatePreview service={serviceFormatted} />,
-    LuxuryCar: <ServiceLuxuryStayPreview service={serviceFormatted} />,
+    LuxuryCar: <ServiceLuxuryCarPreview service={serviceFormatted} />,
     LuxuryStay: <ServiceLuxuryStayPreview service={serviceFormatted} />,
-    PrivateStaff: <ServiceLuxuryStayPreview service={serviceFormatted} />,
-    PrivateEvent: <ServiceLuxuryStayPreview service={serviceFormatted} />,
-    SecurityGuard: <ServiceLuxuryStayPreview service={serviceFormatted} />,
-    TrainingCoach: <ServiceLuxuryStayPreview service={serviceFormatted} />,
-    Jet: <ServiceLuxuryStayPreview service={serviceFormatted} />,
-    Yacht: <ServiceLuxuryStayPreview service={serviceFormatted} />,
-    MedicalCare: <ServiceLuxuryStayPreview service={serviceFormatted} />,
-    BeautySpa: <ServiceLuxuryStayPreview service={serviceFormatted} />,
-    Golf: <ServiceLuxuryStayPreview service={serviceFormatted} />
+    PrivateStaff: <ServicePrivateStaffPreview service={serviceFormatted} />,
+    PrivateEvent: <ServicePrivateEventPreview service={serviceFormatted} />,
+    SecurityGuard: <ServiceSecurityGuardPreview service={serviceFormatted} />,
+    TrainingCoach: <ServiceTrainingCoachPreview service={serviceFormatted} />,
+    Jet: <ServiceJetPreview service={serviceFormatted} />,
+    Yacht: <ServiceYachtPreview service={serviceFormatted} />,
+    MedicalCare: <ServiceMedicalCarePreview service={serviceFormatted} />,
+    BeautySpa: <ServiceBeautySpaPreview service={serviceFormatted} />,
+    Golf: <ServiceGolfPreview service={serviceFormatted} />
   }
 
   return (

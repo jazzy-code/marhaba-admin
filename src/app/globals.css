@@ -100,13 +100,16 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Soporte para Material Symbols */
-.material-symbols-outlined {
-  font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
-  display: inline-block;
-  line-height: 1;
-}
-
 button {
   cursor: pointer;
+}
+
+/** Google Translate **/
+#google_translate_element, #google_translate_element .goog-te-gadget-simple, #google_translate_element .goog-te-gadget-simple a {
+  display: flex;
+}
+
+/* Oculta el tooltip que sale al pasar el ratón sobre textos traducidos */
+#goog-gt-tt {
+  display: none !important;
 }
